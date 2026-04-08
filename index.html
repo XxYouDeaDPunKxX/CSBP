@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSBP | Codex Shared Best Practice</title>
+  <meta name="description" content="A showcase page for CSBP, a three-file protocol kit for maintaining a controlled, operator-approved shared best practice layer in Codex.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f4efe5;
+      --paper: #fbf7ef;
+      --ink: #151515;
+      --muted: #665f56;
+      --rust: #a2461d;
+      --sun: #f2b84a;
+      --forest: #284f45;
+      --line: rgba(21, 21, 21, 0.12);
+      --shadow: 0 18px 50px rgba(33, 20, 7, 0.12);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(242, 184, 74, 0.22), transparent 28%),
+        radial-gradient(circle at 80% 10%, rgba(162, 70, 29, 0.16), transparent 24%),
+        linear-gradient(180deg, #f5efe3 0%, #f0e6d7 48%, #ece1d0 100%);
+      font-family: "IBM Plex Sans", sans-serif;
+      line-height: 1.5;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mix-blend-mode: soft-light;
+      opacity: 0.28;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 0 10px;
+    }
+
+    .brand,
+    .mini-label,
+    .stat-kicker,
+    .eyebrow {
+      font-family: "IBM Plex Mono", monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(251, 247, 239, 0.72);
+      backdrop-filter: blur(12px);
+    }
+
+    .top-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .top-links a,
+    .hero-actions a {
+      border-radius: 999px;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .top-links a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.38);
+    }
+
+    .top-links a:hover,
+    .hero-actions a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(21, 21, 21, 0.12);
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 22px;
+      padding: 30px 0 28px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .panel,
+    .stack-card,
+    .timeline-card,
+    .footer-card {
+      background: rgba(251, 247, 239, 0.82);
+      border: 1px solid rgba(21, 21, 21, 0.08);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-card {
+      padding: 34px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -90px -90px auto;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(162, 70, 29, 0.18), transparent 65%);
+      border-radius: 999px;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(21, 21, 21, 0.1);
+      background: rgba(255,255,255,0.5);
+      font-size: 0.86rem;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Fraunces", serif;
+      font-weight: 700;
+      line-height: 0.95;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(3.3rem, 8vw, 6.6rem);
+      max-width: 10ch;
+      letter-spacing: -0.045em;
+    }
+
+    .hero-copy {
+      margin-top: 18px;
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 58ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .hero-actions a {
+      padding: 14px 18px;
+      font-weight: 600;
+    }
+
+    .cta-primary {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .cta-secondary {
+      border: 1px solid var(--line);
+      background: transparent;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 16px;
+    }
+
+    .stack-card {
+      padding: 22px;
+    }
+
+    .stack-card h3 {
+      font-size: 1.5rem;
+      margin-top: 8px;
+      margin-bottom: 12px;
+    }
+
+    .diagram {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .diagram div {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.6);
+      border: 1px solid rgba(21,21,21,0.08);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.86rem;
+    }
+
+    .diagram strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 4px;
+      font-family: "IBM Plex Sans", sans-serif;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      padding: 12px 0 4px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.56);
+      border: 1px solid rgba(21,21,21,0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      font-family: "Fraunces", serif;
+      letter-spacing: -0.04em;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    section {
+      padding: 18px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 20px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.035em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 60ch;
+      font-size: 1.04rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .panel {
+      padding: 22px;
+    }
+
+    .panel h3 {
+      font-size: 1.5rem;
+      margin: 8px 0 12px;
+    }
+
+    .panel p,
+    .panel li,
+    .timeline-card p,
+    .footer-card p {
+      color: var(--muted);
+    }
+
+    .panel ul {
+      padding-left: 18px;
+      margin: 14px 0 0;
+    }
+
+    .authority-flow {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .authority-flow div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(21,21,21,0.08);
+    }
+
+    .authority-flow span:last-child {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .timeline-card {
+      padding: 26px;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .step {
+      padding: 18px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(21,21,21,0.08);
+      background: rgba(255,255,255,0.56);
+      min-height: 148px;
+    }
+
+    .step strong {
+      display: block;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: var(--forest);
+    }
+
+    .step em {
+      display: block;
+      font-style: normal;
+      font-family: "Fraunces", serif;
+      font-size: 1.28rem;
+      margin-bottom: 8px;
+    }
+
+    .repository-cta {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+    }
+
+    .footer-card {
+      padding: 26px;
+    }
+
+    .footer-card h3 {
+      font-size: 1.9rem;
+      margin: 8px 0 14px;
+    }
+
+    .link-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .link-list a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(21,21,21,0.08);
+      background: rgba(255,255,255,0.56);
+    }
+
+    .site-footer {
+      padding: 28px 0 44px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .site-footer a {
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .repository-cta,
+      .section-head,
+      .grid-3,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        max-width: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-card,
+      .stack-card,
+      .panel,
+      .timeline-card,
+      .footer-card {
+        animation: rise 680ms ease both;
+      }
+
+      .stack-card:nth-child(2),
+      .panel:nth-child(2),
+      .step:nth-child(2) {
+        animation-delay: 80ms;
+      }
+
+      .panel:nth-child(3),
+      .step:nth-child(3) {
+        animation-delay: 160ms;
+      }
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">🧭 CSBP</div>
+      <nav class="top-links" aria-label="Primary">
+        <a href="https://github.com/XxYouDeaDPunKxX/CSBP">Repository</a>
+        <a href="https://github.com/XxYouDeaDPunKxX/CSBP/blob/main/README.md">README</a>
+        <a href="#mechanics">Mechanics</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <article class="hero-card">
+          <div class="badge-row">
+            <span class="badge">AI-only protocol kit</span>
+            <span class="badge">Operator-approved runtime layer</span>
+            <span class="badge">Three-file architecture</span>
+          </div>
+          <h1>Shared practice without turning everything into <code>AGENTS.md</code>.</h1>
+          <p class="hero-copy">
+            CSBP is a small, explicit protocol system for Codex environments that need durable best-practice guidance,
+            but do not want session residue, vague memory, or one-off fixes hardening into the main operating contract.
+          </p>
+          <div class="hero-actions">
+            <a class="cta-primary" href="https://github.com/XxYouDeaDPunKxX/CSBP">Open the repository</a>
+            <a class="cta-secondary" href="https://github.com/XxYouDeaDPunKxX/CSBP/blob/main/README.md">Read the full README</a>
+          </div>
+        </article>
+
+        <aside class="hero-side">
+          <div class="stack-card">
+            <span class="mini-label">What makes it memorable</span>
+            <h3>Three files. Three jobs. No drift.</h3>
+            <div class="diagram">
+              <div><strong>Entry point</strong> activates the system and sets authority.</div>
+              <div><strong>Runtime layer</strong> stores promoted practices only.</div>
+              <div><strong>Compiler layer</strong> evaluates, normalizes, promotes, revises.</div>
+            </div>
+          </div>
+
+          <div class="stack-card">
+            <span class="mini-label">Quick profile</span>
+            <div class="stat-grid">
+              <div class="stat">
+                <strong>3</strong>
+                <span>core files</span>
+              </div>
+              <div class="stat">
+                <strong>2</strong>
+                <span>operating modes</span>
+              </div>
+              <div class="stat">
+                <strong>1</strong>
+                <span>approval path</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Why it exists</div>
+            <h2>Keep recurring guidance usable.</h2>
+          </div>
+          <p>
+            In long-lived Codex setups, useful operational lessons often land in the wrong layer:
+            trapped in chat history, pushed too early into <code>AGENTS.md</code>, or mixed into automatic memory.
+            CSBP creates a middle layer that is explicit, reviewable, and operator-controlled.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="panel">
+            <div class="mini-label">Without CSBP</div>
+            <h3>Signal decays in conversation.</h3>
+            <p>Recurring mistakes keep reappearing because the guidance that could prevent them never gets a stable runtime home.</p>
+          </article>
+          <article class="panel">
+            <div class="mini-label">With CSBP</div>
+            <h3>Only promoted patterns become active.</h3>
+            <p>The operator and Codex can discuss candidates freely, but nothing becomes live runtime guidance without an explicit approval path.</p>
+          </article>
+          <article class="panel">
+            <div class="mini-label">Design intent</div>
+            <h3>Prevent drift by architecture.</h3>
+            <p>The separation between bootstrap, runtime, and compiler logic is the mechanism that keeps the system narrow and trustworthy.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="mechanics">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Mechanics</div>
+            <h2>Three files, different authority, fixed load order.</h2>
+          </div>
+          <p>
+            CSBP is not a note bucket and not a replacement for the host contract.
+            It works because each file has one job, the authority order is explicit, and the compiler does not leak into runtime use.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="panel">
+            <div class="mini-label">Bootstrap</div>
+            <h3><code>CSBP-entry-point.txt</code></h3>
+            <p>Read first. Activates CSBP, establishes authority order, mode routing, load order, and write restrictions.</p>
+          </article>
+          <article class="panel">
+            <div class="mini-label">Runtime</div>
+            <h3><code>shared-best-practice.txt</code></h3>
+            <p>Stores promoted practices only. Active entries apply when relevant; deprecated entries stay out of runtime behavior.</p>
+          </article>
+          <article class="panel">
+            <div class="mini-label">Formation</div>
+            <h3><code>shared-best-practice-compiler.txt</code></h3>
+            <p>Evaluates, normalizes, revises, promotes, deprecates, removes, or rejects candidate practices during formation work.</p>
+          </article>
+        </div>
+
+        <div class="panel" style="margin-top:16px;">
+          <div class="mini-label">Authority order</div>
+          <h3>CSBP stays below the host contract.</h3>
+          <div class="authority-flow">
+            <div><span>Operator instruction</span><span>highest authority</span></div>
+            <div><span><code>AGENTS.md</code></span><span>host contract</span></div>
+            <div><span>Local project instructions</span><span>repo-level rules</span></div>
+            <div><span>CSBP</span><span>shared runtime layer</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="timeline-card">
+          <div class="section-head" style="margin-bottom: 0;">
+            <div>
+              <div class="eyebrow">Lifecycle</div>
+              <h2>Candidate to runtime, with a gate in the middle.</h2>
+            </div>
+            <p>
+              The protocol does not treat every useful observation as a permanent rule.
+              It runs candidates through evaluation and normalization first, then requires operator approval before promotion.
+            </p>
+          </div>
+
+          <div class="timeline">
+            <div class="step">
+              <strong>01</strong>
+              <em>Observe</em>
+              A recurring issue, omission, or pattern enters discussion.
+            </div>
+            <div class="step">
+              <strong>02</strong>
+              <em>Evaluate</em>
+              Recurrence, scope, usefulness, and overlap with stronger rules are checked.
+            </div>
+            <div class="step">
+              <strong>03</strong>
+              <em>Normalize</em>
+              The idea is rewritten into a short, preventive, runtime-ready instruction.
+            </div>
+            <div class="step">
+              <strong>04</strong>
+              <em>Approve</em>
+              The operator decides whether the candidate is allowed into runtime.
+            </div>
+            <div class="step">
+              <strong>05</strong>
+              <em>Promote</em>
+              The practice lands in the runtime file with its final identifier.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="repository-cta">
+          <article class="footer-card">
+            <div class="mini-label">Public surface</div>
+            <h3>Explore the repository, not just the page.</h3>
+            <p>
+              This site is a showcase. The actual public artifact lives in the repository, where the protocol files,
+              README, and license are maintained.
+            </p>
+            <div class="link-list">
+              <a href="https://github.com/XxYouDeaDPunKxX/CSBP">
+                <span>Open repository</span>
+                <span>↗</span>
+              </a>
+              <a href="https://github.com/XxYouDeaDPunKxX/CSBP/blob/main/README.md">
+                <span>Read documentation</span>
+                <span>↗</span>
+              </a>
+              <a href="https://github.com/XxYouDeaDPunKxX/CSBP/tree/main">
+                <span>Browse source files</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="footer-card">
+            <div class="mini-label">Short framing</div>
+            <h3>What CSBP is not.</h3>
+            <p>It is not a plugin, package, CLI, hosted service, auto-memory layer, or replacement for <code>AGENTS.md</code>.</p>
+            <p>
+              It is a portable, reviewable, AI-only protocol kit for shared operational best practices across Codex sessions.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        CSBP is published under
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+        Built as a separated GitHub Pages surface for the
+        <a href="https://github.com/XxYouDeaDPunKxX/CSBP">main repository</a>.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
