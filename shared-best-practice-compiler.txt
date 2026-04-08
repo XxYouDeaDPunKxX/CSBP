@@ -1,0 +1,207 @@
+ENTRY
+load through CSBP-entry-point.txt
+
+NAME
+shared best practice compiler protocol
+
+VERSION
+0.1
+
+OBJECT
+evaluate, normalize, promote, revise, deprecate, remove, or reject recurring global or environment-global operational best practices for shared-best-practice.txt
+
+NON-OBJECT
+do not replace AGENTS.md
+do not replace local project instructions or project-local guidance
+do not store project-specific instructions
+do not store policy, tone, or style guidance
+do not store one-off fixes
+do not store recovery-only logic
+do not store speculative advice
+do not store broad behavioral framing
+
+AUTHORITY
+see CSBP-entry-point.txt for authority order
+operator approval is required for promotion
+shared best practice compiler protocol can propose promotion but cannot approve promotion
+shared runtime practices cannot redefine policy, scope, or authority
+
+INPUT
+operator observation
+free-text description
+conversation fragment
+rough hypothesis
+reported recurring mistake
+reported recurring omission
+reported recurring missed opportunity during real work
+
+DISCUSSION
+protocol may reinterpret the reported issue
+protocol may identify the likely underlying pattern
+protocol may split multiple patterns
+protocol may merge similar patterns
+protocol may narrow or broaden the formulation
+protocol may classify the issue as operational-level, policy-level, project-specific, or too weak in recurrence, scope, or clarity for promotion
+
+EXTERNAL CHECK
+protocol may suggest a lightweight web check when outside recurrence could materially clarify the decision
+external check is optional
+external check is for practical corroboration, not proof
+prefer primary practical sources with direct relevance
+primary practical sources: sources close to the real environment, tool, workflow, or issue being discussed
+avoid broad or unnecessary research
+
+ADMIT
+recurring across sessions
+global or environment-global
+actionable during real work
+preventive by default
+expressible as a short operational instruction telling what to do
+stable across work contexts
+not already covered by AGENTS.md
+not already covered by a stronger local instruction
+likely to reduce recurring waste or error
+
+REJECT
+project-specific
+session-specific
+one-off
+vague
+diagnostic-only
+recovery-only
+post-failure only
+duplicate of existing practice
+duplicate of AGENTS.md
+duplicate of local project instructions or project-local guidance
+too broad to match reliably
+too narrow to matter outside one case
+conflicts with higher-authority instructions
+depends on hidden or unstable context
+reads like explanation instead of instruction
+reads like policy instead of operational correction
+
+NORMALIZATION
+rewrite as a preventive default
+rewrite as a runtime-ready instruction
+keep one pattern per practice
+remove narrative
+remove non-operational explanation
+remove project-specific detail
+prefer short stable wording
+prefer direct verbs
+avoid fallback phrasing
+avoid recovery-first phrasing
+
+BLOCK SHAPE
+id
+status
+scope
+kind
+applies_when
+goal
+do
+avoid
+
+ID FORMAT
+PNNN: sequential practice identifier
+
+ID ASSIGNMENT
+assign PNNN only at promotion
+operator assigns the final runtime id
+do not assign final runtime id in proposal stage
+
+STATUS
+active
+deprecated
+
+LIFECYCLE
+promote: candidate becomes active runtime practice
+deprecate: active runtime practice becomes deprecated
+remove: deprecated or invalid runtime practice is removed from shared-best-practice.txt
+
+RUNTIME MAINTENANCE
+revise active practice
+deprecate active practice
+remove deprecated or invalid practice
+
+MAINTENANCE RULE
+runtime practice maintenance uses this compiler protocol
+runtime practice revisions require operator approval
+status changes and removals require operator approval
+
+REMOVE RULE
+remove deprecated practice only on direct operator instruction
+remove invalid active practice only on direct operator instruction
+do not remove runtime practice during normal runtime use
+
+KIND
+environment
+orientation
+operation
+verification
+
+FIELD RULES
+id: use PNNN sequential format
+scope: classify the practice as global or environment-global
+kind: classify the primary role of the practice for runtime interpretation
+applies_when: describe the operational condition, not the project
+goal: state the intended operational effect
+do: state the primary correct default action
+avoid: state the recurring wrong pattern
+
+SCOPE
+global: stable across work contexts
+environment-global: stable across the current working environment across sessions
+
+KIND RULES
+environment: use for stable environment conditions, constraints, or affordances
+orientation: use for setup, framing, or initial approach during real work
+operation: use for operational actions or working methods during real work
+verification: use for checking, confirmation, or closure practices
+
+BLOCK QUALITY
+one practice = one recurring pattern
+split if more than one main action or more than one wrong pattern is present
+rewrite or reject if too broad, too narrow, overly explanatory, or not usable during real work
+if revise produces split, evaluate each fragment independently before promotion
+
+DECISION
+promote
+revise
+reject
+deprecate
+remove
+
+PROPOSAL SHAPE
+candidate
+kind
+scope
+rationale
+proposed block
+
+PROPOSAL FIELD RULES
+rationale: one short operational sentence
+
+PROMOTE
+candidate is ready for runtime use
+
+REVISE
+candidate is valid but wording, scope, or split is still wrong
+revise happens in the same working pass
+
+REJECT
+candidate is not suitable for shared runtime practice
+
+DEPRECATE
+active runtime practice becomes deprecated
+
+REMOVE
+deprecated or invalid runtime practice is removed from shared-best-practice.txt
+
+PROMOTION
+only promoted practices enter shared-best-practice.txt
+
+RUNTIME RELATION
+shared-best-practice.txt is the runtime layer loaded after CSBP-entry-point.txt
+apply active practices only when relevant
+do not let runtime practices override operator instruction, AGENTS.md, or local project instructions or project-local guidance

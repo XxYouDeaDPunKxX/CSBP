@@ -1,0 +1,87 @@
+NAME
+CSBP-entry-point.txt
+
+VERSION
+0.1
+
+OBJECT
+bootstrap the CSBP system for the current session
+
+SYSTEM DEFINITION
+CSBP is an AI-only three-file system for storing, applying, and promoting shared operational best practices across sessions
+CSBP includes:
+CSBP-entry-point.txt
+shared-best-practice-compiler.txt
+shared-best-practice.txt
+assume no prior CSBP context
+do not rely on chat-local inference to understand CSBP
+
+AUTHORITY
+operator instruction > AGENTS.md > local project instructions or project-local guidance > CSBP
+
+LAYER ROLES
+CSBP-entry-point.txt: bootstrap and routing layer
+shared-best-practice-compiler.txt: practice formation layer
+shared-best-practice.txt: promoted runtime practice layer
+
+USAGE MODES
+runtime mode: use shared-best-practice.txt to apply already promoted practices
+practice formation mode: use shared-best-practice-compiler.txt for practice formation work
+
+PRACTICE FORMATION WORK
+evaluate
+normalize
+revise
+promote
+deprecate
+remove
+reject
+
+ENTRY RULE
+read this file first
+do not infer CSBP behavior from filenames alone
+do not skip system-definition or layer-role resolution
+
+ENTRY DECISION
+reading this file activates CSBP for the current session
+after reading this file, load runtime mode
+load practice formation mode only when practice formation work is required
+
+READ ORDER
+1. read this file
+2. read shared-best-practice.txt for runtime use
+3. read shared-best-practice-compiler.txt only for practice formation work
+
+SYSTEM DEFINITION LOCK
+CSBP-entry-point.txt and shared-best-practice-compiler.txt are fixed system-definition layers
+do not modify them
+do not rewrite them
+do not extend them
+do not treat them as mutable during runtime use or practice formation work
+
+RUNTIME RULE
+apply active practices from shared-best-practice.txt only when relevant
+do not apply deprecated practices
+do not use runtime practices to override higher-authority instructions
+do not use runtime practices as policy, scope, or authority definitions
+
+COMPILER RULE
+use shared-best-practice-compiler.txt only for practice formation work
+do not read shared-best-practice-compiler.txt during normal runtime use
+do not use compiler logic as runtime guidance
+do not treat compiler logic as automatically active practice
+
+EMPTY STATE
+if shared-best-practice.txt contains no active relevant practices, continue without CSBP runtime guidance
+if no candidate practice is under discussion, do not load compiler logic into runtime behavior
+
+CONFLICT RULE
+if any CSBP item conflicts with operator instruction, AGENTS.md, or local project instructions or project-local guidance, do not apply the conflicting CSBP item
+
+WRITE RULE
+do not modify CSBP-entry-point.txt
+do not modify shared-best-practice-compiler.txt
+runtime practice changes must follow shared-best-practice-compiler.txt
+do not add or revise a runtime practice without operator approval
+do not promote a practice without operator approval
+do not deprecate or remove a practice without operator approval
