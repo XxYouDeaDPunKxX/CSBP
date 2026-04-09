@@ -1,3 +1,5 @@
+![A mechanical visual metaphor for protocol construction, stamping, and controlled runtime formation.](assets/images/protocol-machine.png)
+
 # 🧭 Codex Shared Best Practice (CSBP)
 
 A three-file protocol kit for maintaining a controlled, operator-approved shared best practice layer in Codex.
@@ -101,6 +103,8 @@ If `status` is `deprecated`, stop reading the block.
 ### 🧪 `shared-best-practice-compiler.txt`
 
 Formation layer. Loaded only for practice formation work. Governs candidate intake, admission and rejection rules, normalization, proposal shape, and the full promotion lifecycle. Fixed. Do not modify, rewrite, or extend.
+
+![A sci-fi visual metaphor for AGENTS, authority, policy, sessions, and environment linked through a controlled operational graph.](assets/images/authority-network.png)
 
 ## 🏛️ Authority order
 
