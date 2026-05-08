@@ -1,0 +1,66 @@
+# CSBP | Codex Shared Best Practice
+
+Name: CSBP
+Subtitle: Codex Shared Best Practice
+Type: Three-file Codex practice protocol kit
+URL: https://xxyoudeadpunkxx.github.io/CSBP-Codex-Shared-Best-Practice/
+Repository: https://github.com/XxYouDeaDPunKxX/CSBP-Codex-Shared-Best-Practice
+Runtime: Codex operational practice layer
+
+## Purpose
+CSBP keeps recurring Codex best practices explicit, reviewed, and separate from automatic memory or AGENTS.md.
+It is a review gate for practices that may deserve to persist.
+It is not a memory that writes itself.
+
+## Position
+CSBP is a controlled middle layer:
+- below operator instruction
+- below AGENTS.md
+- below local project instructions or project-local guidance
+- separate from chat history
+- controlled by the operator
+
+## Authority order
+operator instruction > AGENTS.md > local project instructions or project-local guidance > CSBP
+
+CSBP never overrides higher-authority instructions.
+If a CSBP practice conflicts with stronger instructions, the CSBP item is not applied.
+
+## Three files
+- CSBP-entry-point.txt: bootstrap and routing layer; defines system identity, authority order, usage modes, read order, and write restrictions.
+- shared-best-practice.txt: runtime layer; stores promoted practices only. Active practices may guide work when relevant.
+- shared-best-practice-compiler.txt: formation layer; evaluates, normalizes, promotes, revises, deprecates, removes, or rejects candidate practices.
+
+## Install layout
+.codex/memories/CSBP-entry-point.txt
+.codex/memories/shared-best-practice.txt
+.codex/memories/shared-best-practice-compiler.txt
+
+Wire CSBP-entry-point.txt into .codex/AGENTS.md so a fresh Codex session reads it before using CSBP.
+
+## Runtime behavior
+During normal work, CSBP does not create new practices.
+It applies already-promoted active practices only when their applies_when condition matches the current work.
+If there are no active relevant practices, Codex continues without CSBP runtime guidance.
+No active match means no forced behavior.
+
+## Formation path
+1. Operator raises or asks for a candidate.
+2. Codex evaluates recurrence, scope, actionability, and authority.
+3. The candidate is normalized into runtime block shape.
+4. Weak or local material is rejected.
+5. Valid material is proposed.
+6. The operator approves or rejects.
+7. Only approved practice enters shared-best-practice.txt.
+
+## Admission criteria
+A valid CSBP practice should be recurring, actionable, preventive, broader than one project or one session, compatible with higher-authority instructions, short enough to apply during real work, and likely to reduce recurring waste or error.
+
+## Rejection criteria
+Reject material that is one-off, project-specific, session-specific, vague, diagnostic-only, recovery-only, policy-like, explanation-like, already covered by AGENTS.md, already covered by local instructions, dependent on hidden or unstable context, or only an operator preference without stable operational need.
+
+## Compatibility
+If CSBP is the persistent best-practice layer, avoid running it alongside automatic memory systems that can also turn session carryover into future behavior. Two persistence layers create unclear authority.
+
+## Keywords
+Codex, Codex best practices, operational practice, review gate, AGENTS.md, shared best practice, explicit persistence, operator approval, CSBP
