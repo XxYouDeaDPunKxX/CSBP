@@ -6,14 +6,48 @@ Type: Three-file Codex practice protocol kit
 URL: https://xxyoudeadpunkxx.github.io/CSBP-Codex-Shared-Best-Practice/
 Repository: https://github.com/XxYouDeaDPunKxX/CSBP-Codex-Shared-Best-Practice
 Runtime: Codex operational practice layer
+License: CC BY-SA 4.0
+License URL: https://creativecommons.org/licenses/by-sa/4.0/
+Canonical entry file: CSBP-entry-point.txt
+
+## What this is
+
+CSBP is a three-file protocol kit for keeping recurring Codex guidance reviewable, approved, and usable without bloating the host contract.
+
+It is not automatic memory, not a replacement for AGENTS.md, and not a place for one-off session preferences. It is a controlled middle layer for practices that may deserve to persist.
+
+## Operating line
+
+Not a rule, not a vibe. A reviewed practice layer below the host contract.
+
+## Use case
+
+Use CSBP when Codex keeps repeating the same operational mistake, when useful guidance is buried in chat history, or when a recurring practice is useful but not strong enough to become a project rule.
+
+## Canonical source
+
+The canonical public source is the repository.
+
+Core files:
+
+- CSBP-entry-point.txt
+- shared-best-practice.txt
+- shared-best-practice-compiler.txt
+
+Treat this file as the LLM-readable project index, not as the full CSBP specification.
 
 ## Purpose
+
 CSBP keeps recurring Codex best practices explicit, reviewed, and separate from automatic memory or AGENTS.md.
+
 It is a review gate for practices that may deserve to persist.
+
 It is not a memory that writes itself.
 
 ## Position
+
 CSBP is a controlled middle layer:
+
 - below operator instruction
 - below AGENTS.md
 - below local project instructions or project-local guidance
@@ -21,30 +55,39 @@ CSBP is a controlled middle layer:
 - controlled by the operator
 
 ## Authority order
+
 operator instruction > AGENTS.md > local project instructions or project-local guidance > CSBP
 
 CSBP never overrides higher-authority instructions.
+
 If a CSBP practice conflicts with stronger instructions, the CSBP item is not applied.
 
 ## Three files
+
 - CSBP-entry-point.txt: bootstrap and routing layer; defines system identity, authority order, usage modes, read order, and write restrictions.
 - shared-best-practice.txt: runtime layer; stores promoted practices only. Active practices may guide work when relevant.
 - shared-best-practice-compiler.txt: formation layer; evaluates, normalizes, promotes, revises, deprecates, removes, or rejects candidate practices.
 
 ## Install layout
-.codex/memories/CSBP-entry-point.txt
-.codex/memories/shared-best-practice.txt
-.codex/memories/shared-best-practice-compiler.txt
+
+- .codex/memories/CSBP-entry-point.txt
+- .codex/memories/shared-best-practice.txt
+- .codex/memories/shared-best-practice-compiler.txt
 
 Wire CSBP-entry-point.txt into .codex/AGENTS.md so a fresh Codex session reads it before using CSBP.
 
 ## Runtime behavior
+
 During normal work, CSBP does not create new practices.
+
 It applies already-promoted active practices only when their applies_when condition matches the current work.
+
 If there are no active relevant practices, Codex continues without CSBP runtime guidance.
+
 No active match means no forced behavior.
 
 ## Formation path
+
 1. Operator raises or asks for a candidate.
 2. Codex evaluates recurrence, scope, actionability, and authority.
 3. The candidate is normalized into runtime block shape.
@@ -54,13 +97,35 @@ No active match means no forced behavior.
 7. Only approved practice enters shared-best-practice.txt.
 
 ## Admission criteria
+
 A valid CSBP practice should be recurring, actionable, preventive, broader than one project or one session, compatible with higher-authority instructions, short enough to apply during real work, and likely to reduce recurring waste or error.
 
 ## Rejection criteria
+
 Reject material that is one-off, project-specific, session-specific, vague, diagnostic-only, recovery-only, policy-like, explanation-like, already covered by AGENTS.md, already covered by local instructions, dependent on hidden or unstable context, or only an operator preference without stable operational need.
 
 ## Compatibility
+
 If CSBP is the persistent best-practice layer, avoid running it alongside automatic memory systems that can also turn session carryover into future behavior. Two persistence layers create unclear authority.
 
+## Discovery Set
+
+Machine-readable project files:
+
+- llms.txt: LLM-readable project index.
+- raw-manifest.json: structured machine-readable project manifest.
+- robots.txt: crawler access declaration.
+- sitemap.xml: sitemap for the GitHub Pages surface.
+
+HTML discovery signals:
+
+- canonical URL
+- rel=alternate for llms.txt
+- rel=alternate for raw-manifest.json
+- JSON-LD SoftwareSourceCode metadata
+- Open Graph metadata
+- footer machine-readable links
+
 ## Keywords
-Codex, Codex best practices, operational practice, review gate, AGENTS.md, shared best practice, explicit persistence, operator approval, CSBP
+
+Codex, Codex best practices, operational practice, review gate, AGENTS.md, shared best practice, explicit persistence, operator approval, CSBP, Codex practice governance, practice compiler, runtime practice layer
