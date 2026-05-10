@@ -1,15 +1,19 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CSBP | Codex Shared Best Practice</title>
   <meta name="description" content="CSBP is a three-file protocol kit for keeping recurring Codex guidance reviewable, approved, and usable without bloating the host contract.">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://xxyoudeadpunkxx.github.io/CSBP-Codex-Shared-Best-Practice/">
+  <link rel="alternate" type="text/plain" href="llms.txt" title="LLM-readable project index">
+  <link rel="alternate" type="application/json" href="raw-manifest.json" title="Machine-readable project manifest">
   <meta property="og:title" content="CSBP | Codex Shared Best Practice">
   <meta property="og:description" content="A three-file protocol kit for keeping recurring Codex guidance reviewable, approved, and usable without bloating the host contract.">
   <meta property="og:url" content="https://xxyoudeadpunkxx.github.io/CSBP-Codex-Shared-Best-Practice/">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://xxyoudeadpunkxx.github.io/CSBP-Codex-Shared-Best-Practice/assets/gallery/frame-12.jpg">
   <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -24,10 +28,40 @@
       "alternateName": "Codex Shared Best Practice",
       "description": "A three-file protocol kit for keeping recurring Codex guidance reviewable, approved, and usable without bloating the host contract.",
       "url": "https://xxyoudeadpunkxx.github.io/CSBP-Codex-Shared-Best-Practice/",
+      "mainEntityOfPage": "https://xxyoudeadpunkxx.github.io/CSBP-Codex-Shared-Best-Practice/",
       "codeRepository": "https://github.com/XxYouDeaDPunKxX/CSBP-Codex-Shared-Best-Practice",
       "programmingLanguage": "Plain text",
+      "runtimePlatform": "Codex operational practice layer",
+      "applicationCategory": "DeveloperApplication",
       "license": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "keywords": "Codex, Codex best practices, operational practice, review gate, AGENTS.md, shared best practice, explicit persistence, operator approval, CSBP"
+      "isAccessibleForFree": true,
+      "author": {
+        "@type": "Person",
+        "name": "XxYouDeaDPunKxX",
+        "url": "https://github.com/XxYouDeaDPunKxX"
+      },
+      "about": [
+        "Codex operational practice",
+        "shared best practice",
+        "review gate",
+        "operator approval",
+        "runtime practice layer",
+        "practice compiler"
+      ],
+      "keywords": [
+        "Codex",
+        "Codex best practices",
+        "operational practice",
+        "review gate",
+        "AGENTS.md",
+        "shared best practice",
+        "explicit persistence",
+        "operator approval",
+        "CSBP",
+        "Codex practice governance",
+        "practice compiler",
+        "runtime practice layer"
+      ]
     }
   </script>
   <style>
@@ -602,6 +636,27 @@
       text-underline-offset: 0.2em;
     }
 
+    .machine-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.7rem;
+      margin-top: 0.8rem;
+      color: var(--muted-soft);
+      font-size: 0.78rem;
+    }
+
+    .machine-links a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .machine-links a:hover,
+    .machine-links a:focus-visible {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+
     @media (max-width: 1120px) {
       .hero,
       .section-shell,
@@ -883,9 +938,9 @@
                 <h3>CSBP stays below the host contract.</h3>
                 <div class="authority-list">
                   <div class="authority-item"><span>Operator instruction</span><span>highest authority</span></div>
-                  <div class="authority-item"><span><code>AGENTS.md</code></span><span>host contract</span></div>
-                  <div class="authority-item"><span>Local project instructions</span><span>workspace-specific rules</span></div>
-                  <div class="authority-item"><span>CSBP</span><span>shared runtime layer</span></div>
+                  <div class="authority-item"><span>AGENTS.md</span><span>host contract</span></div>
+                  <div class="authority-item"><span>Local project instruction</span><span>project layer</span></div>
+                  <div class="authority-item"><span>CSBP</span><span>shared practice</span></div>
                 </div>
               </article>
             </div>
@@ -896,46 +951,26 @@
       <section id="lifecycle-cluster">
         <div class="section-shell">
           <div class="section-label">
-            <div class="eyebrow">How practice becomes live</div>
-            <h2>Candidate first. Runtime later.</h2>
+            <div class="eyebrow">Lifecycle</div>
+            <h2>Nothing becomes active by accident.</h2>
           </div>
 
           <div class="section-copy">
             <p>
-              CSBP does not turn every good idea into a permanent rule.
-              It gives candidate practice a review path first, then makes promotion an explicit operator decision.
+              A candidate practice has to earn promotion. It must recur, stay actionable, remain compatible with stronger instructions,
+              and be approved by the operator before it becomes active runtime guidance.
             </p>
 
             <figure class="visual-stage">
-              <img src="assets/feature/section-03.png" alt="A gated machine-like environment representing a controlled transition from candidate to runtime." loading="lazy">
+              <img src="assets/feature/section-03.png" alt="A review chamber representing candidate evaluation, promotion, and rejection." loading="lazy">
             </figure>
 
             <div class="timeline">
-              <article class="step">
-                <strong>01</strong>
-                <em>Observe</em>
-                <p>A recurring issue, omission, or pattern enters discussion.</p>
-              </article>
-              <article class="step">
-                <strong>02</strong>
-                <em>Evaluate</em>
-                <p>Usefulness, recurrence, scope, and overlap with stronger rules are checked.</p>
-              </article>
-              <article class="step">
-                <strong>03</strong>
-                <em>Normalize</em>
-                <p>The idea is rewritten into a short, preventive, runtime-ready instruction.</p>
-              </article>
-              <article class="step">
-                <strong>04</strong>
-                <em>Approve</em>
-                <p>The operator decides whether the candidate belongs in runtime.</p>
-              </article>
-              <article class="step">
-                <strong>05</strong>
-                <em>Promote</em>
-                <p>The practice lands in the runtime file with a stable final form.</p>
-              </article>
+              <article class="step"><strong>01</strong><em>Notice</em><p>A repeated operational issue or useful practice appears.</p></article>
+              <article class="step"><strong>02</strong><em>Evaluate</em><p>The compiler checks recurrence, scope, actionability, and authority.</p></article>
+              <article class="step"><strong>03</strong><em>Normalize</em><p>Valid material is rewritten into a small runtime block.</p></article>
+              <article class="step"><strong>04</strong><em>Approve</em><p>The operator accepts, edits, or rejects the candidate.</p></article>
+              <article class="step"><strong>05</strong><em>Apply</em><p>Only approved active entries may guide future work when relevant.</p></article>
             </div>
           </div>
         </div>
@@ -944,37 +979,30 @@
       <section id="helps-cluster">
         <div class="section-shell">
           <div class="section-label">
-            <div class="eyebrow">Where it helps</div>
-            <h2>Useful when repeated work keeps slipping away.</h2>
+            <div class="eyebrow">What it prevents</div>
+            <h2>Useful practice without memory sprawl.</h2>
           </div>
 
           <div class="section-copy">
             <p>
-              CSBP is most useful when an environment keeps producing the same good operational guidance, but has no clean place to keep it reusable.
-              It fits best where guidance needs review, durability, and a smaller blast radius than rewriting the host contract.
+              CSBP is deliberately conservative. It avoids automatic capture, silent rule creation, and background promotion.
+              It gives useful practice a path without giving chat history the power to rewrite future behavior.
             </p>
 
             <figure class="visual-stage">
-              <img src="assets/feature/section-04.png" alt="A monumental technical scene suggesting stability, memory, and repeatable structure." loading="lazy">
+              <img src="assets/feature/section-04.png" alt="A controlled archive surface with selected guidance being promoted into a stable runtime layer." loading="lazy">
             </figure>
 
-            <div class="signal-grid">
-              <article class="signal-card">
-                <div class="kicker">Long-lived sessions</div>
-                <h3>When chat keeps carrying too much weight.</h3>
-                <p>Repeated lessons stop living as scattered reminders and start living in a shared layer.</p>
+            <div class="two-up">
+              <article class="footer-card">
+                <div class="kicker">Good fit</div>
+                <h3>Recurring, actionable, preventive.</h3>
+                <p>Best for guidance that applies across sessions, reduces repeated waste, and can be used without lengthy interpretation.</p>
               </article>
-
-              <article class="signal-card">
-                <div class="kicker">Shared environments</div>
-                <h3>When the same behavior should survive across sessions.</h3>
-                <p>You get a stable runtime reference without turning the host contract into a policy document.</p>
-              </article>
-
-              <article class="signal-card">
-                <div class="kicker">Prompt hygiene</div>
-                <h3>When <code>AGENTS.md</code> should stay narrow.</h3>
-                <p>The host contract stays focused while recurring best practice gets a place designed for review and promotion.</p>
+              <article class="footer-card">
+                <div class="kicker">Bad fit</div>
+                <h3>One-off, local, vague, or stronger elsewhere.</h3>
+                <p>Rejected if it belongs in a specific project, duplicates stronger instruction, or cannot guide real work.</p>
               </article>
             </div>
           </div>
@@ -1017,16 +1045,13 @@
         CSBP is published under
         <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
       </p>
-      <p>
-        Crawler files:
+      <!-- Discovery Set: low-noise links for crawlers, bots, and LLM readers. -->
+      <div class="machine-links" aria-label="Machine-readable project files">
+        <span>Machine-readable:</span>
         <a href="llms.txt">llms.txt</a>
-        /
-        <a href="robots.txt">robots.txt</a>
-        /
-        <a href="sitemap.xml">sitemap.xml</a>
-        /
-        <a href="raw-manifest.json">raw-manifest.json</a>
-      </p>
+        <a href="raw-manifest.json">manifest</a>
+        <a href="sitemap.xml">sitemap</a>
+      </div>
     </footer>
   </div>
   <script>
@@ -1090,4 +1115,3 @@
   </script>
 </body>
 </html>
-
