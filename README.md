@@ -427,6 +427,14 @@ The same admission, rejection, normalization, authority, and approval constraint
 
 </details>
 
+## 🤖 AI-assisted development
+
+This project was developed with AI assistance.
+
+The project, documentation, and repository materials were shaped through human-directed work supported by AI tools during drafting, structuring, review, and refinement.
+
+AI assistance does not make the project automatically correct, complete, or suitable for every use case. Read it, test it, and adapt it to your own context.
+
 ## ⚖️ License
 
 This project is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License (`CC BY-SA 4.0`).
